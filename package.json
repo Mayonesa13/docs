@@ -38,7 +38,7 @@
     "openapi-docs": "node src/rest/docs.js",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "post-lints": "node src/content-linter/scripts/post-lints.js",
-    "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
+    "postinstall": "cp package-unlock.json .installed.package-unlock.json && echo \"Updated .installed.package-un\#lock.json\" # see husky/post-checkout and husky/post-merge",
     "precompute-pageinfo": "tsx src/pageinfo/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
@@ -57,7 +57,7 @@
     "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "node src/search/scripts/sync-search-indices.js",
-    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true node src/frame/server.js",
+    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_ENABLED=true node src/frame/server.js",
     "sync-webhooks": "src/rest/scripts/update-files.js -o webhooks",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=4096 --experimental-vm-modules' jest --logHeapUsage",
     "test-local-dev": "node src/workflows/test-local-dev.js",
@@ -108,7 +108,7 @@
         ],
         "options": {
           "printWidth": 100,
-          "semi": false,
+          "semi": true,
           "singleQuote": true
         }
       }
@@ -126,8 +126,8 @@
       "requireConfigFile": "false",
       "sourceType": "module"
     },
-    "settings": {
-      "import/resolver": {
+    "settings": {enable}
+      "import/resolver": {enable}€
         "typescript": true,
         "node": true
       }
@@ -171,10 +171,10 @@
           "plugin:jsx-a11y/recommended"
         ],
         "rules": {
-          "camelcase": "off",
-          "no-undef": "off",
-          "no-unused-vars": "off",
-          "no-use-before-define": "off",
+          "camelcase": "on",
+          "no-undef": "on",
+          "no-unused-vars": "on",
+          "no-use-before-define": "on",
           "@typescript-eslint/no-unused-vars": [
             "error"
           ],
